@@ -15,6 +15,13 @@ module Alchemy
     def initialize(content, options = {}, html_options = {})
       @content = content
       @options = DEFAULT_OPTIONS.update(content.settings).update(options)
+      if @options[:image_size].present?
+        ActiveSupport::Deprecation.warn(
+          "Passing `image_size` to EssencePicture is deprecated. Please use `size` instead.",
+          caller.unshift
+        )
+        @options[:size] = @options.delete(:image_size)
+      end
       @html_options = html_options
       @essence = content.essence
       @picture = essence.picture
