@@ -17,6 +17,8 @@ when it is defined.
   has been set to `acts_as_taggable`.
 * Automatically add scope filters to admin module views, when the resource model
   has the class method `alchemy_resource_filters` defined.
+* New API endpoint for retrieving a nested page tree.
+  `api/pages/nested` returns a nested JSON tree of all pages.
 
 __Notable Changes__
 
